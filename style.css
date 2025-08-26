@@ -1,0 +1,124 @@
+/* Base styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: "header" "nav" "main" "footer";
+    grid-template-columns: 1fr;
+}
+
+
+/* Grid Layout for Desktop */
+
+@media (min-width: 768px) {
+    .container {
+        grid-template-areas: "header header" "nav nav" "content sidebar" "footer footer";
+        grid-template-columns: 3fr 1fr;
+    }
+}
+
+
+/* Layout Areas */
+
+header {
+    grid-area: header;
+    background: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    grid-area: nav;
+    background: #555;
+    padding: 1rem;
+}
+
+main {
+    grid-area: main;
+    display: contents;
+}
+
+.content {
+    grid-area: content;
+    padding: 1rem;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #f4f4f4;
+    padding: 1rem;
+}
+
+footer {
+    grid-area: footer;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+/* Flexbox Nav */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: #777;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.nav-links li a:hover {
+    background: #999;
+}
+
+
+/* Flexbox Cards */
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.card {
+    flex: 1 1 200px;
+    background: #e0e0e0;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/* Responsive Tweaks */
+
+@media (max-width: 600px) {
+    .cards {
+        flex-direction: column;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
